@@ -1,2 +1,4 @@
 https://github.com/user-attachments/assets/4141aad4-fcfc-410b-9d0e-61b370fe0be0
 
+Identifying bird species based on their calls, songs, and sounds in audio recordings is an important task in wildlife monitoring for which the annotation is time-consuming if done manually. With the arrival of CNN, automated processing of field recordings made a huge leap forward. Nonetheless, processing large datasets containing hundreds of different classes is still very challenging. In the past years, many groundbreaking CNN architectures evolved from evaluation campaigns such as TREC, CLEF, or the ILSVRC. Adapting those architectures for the purpose of audio event detection has become common practice despite the very different domains of image and audio inputs. Generating deep features based on visual representations of audio recordings has proven to be very effective when applied to the classification of audio events such as bird sounds.
+
