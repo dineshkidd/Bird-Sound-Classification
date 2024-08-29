@@ -6,9 +6,10 @@ import librosa
 from librosa.display import specshow
 from keras.models import load_model
 from keras.preprocessing import image
+import webbrowser
+import streamlit.components.v1 as components
 
-# converting to spectrogram
-# path="song.wav"
+
 st.markdown(
     """
     <style>
@@ -16,18 +17,19 @@ st.markdown(
         margin-top:-50px;
     }
     h3{
-        color:blue;
+        color:white;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-st.markdown(
-    """<h1 style="text-align:center;padding-botton:5000px;">Bird Sound Classification</h1>""",
-    unsafe_allow_html=True,
-)
-
+# st.markdown(
+#     """<h1 style="text-align:center;padding-botton:1000px;display:block;">AI based Bird Species Identification using Audio Signals</h1>""",
+#     unsafe_allow_html=True,
+# )
+st.header("AI based Bird Species Identification using Audio Signals")
+st.text("            ")
 st.set_option('deprecation.showfileUploaderEncoding', False)
 file_buffer = st.file_uploader("Choose a WAV File...", type="wav")
 
@@ -84,10 +86,18 @@ def run(path):
                 "Swallow-tailed Nightjar",
                 "White-tipped Sicklebill",
             ]
+            print(classes)
             st.subheader(a[classes[0]])
-            st.image("spec.png",width=350)
-    
+            # st.audio(path, format='audio/wav')
+            # st.image("spec.png",width=350)
+            b=a[classes[0]].replace(" ","_")
+            link = '[Learn more about '+a[classes[0]]+' on wikipedia](https://en.wikipedia.org/wiki/'+b+')'
+            st.markdown(link, unsafe_allow_html=True)
+            st.image("img\\"+a[classes[0]]+".jpg",width=350)
+            
 
 
+
+       
 if st.button("Detect Bird"):
     run(file_buffer)
